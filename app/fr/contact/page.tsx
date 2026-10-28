@@ -1,0 +1,2 @@
+import ContactForm from '@/components/ContactForm'; import { Container, SectionHeading } from '@/components/Marketing';
+export default function Page(){return <Container className="py-16"><SectionHeading title="Nous contacter" text="Vous avez des questions ou souhaitez discuter d'un projet ? Contactez-nous et élaborons ensemble la solution parfaite."/><div className="mx-auto mt-12 max-w-2xl rounded-3xl border border-neutral-200 p-8 dark:border-neutral-800"><ContactForm/></div></Container>}
