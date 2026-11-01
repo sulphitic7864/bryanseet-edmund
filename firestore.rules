@@ -3,10 +3,10 @@ service cloud.firestore {
   match /databases/{database}/documents {
     function isAdmin() {
       return request.auth != null
-        && request.auth.token.email == "admin@gmail.com";
+        && request.auth.token.email == "edmund.chong1909@gmail.com";
     }
 
-    match /site/content {
+    match /edmund/content {
       allow read: if true;
       allow create, update, delete: if isAdmin();
     }

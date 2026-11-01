@@ -36,4 +36,4 @@ if (firebaseConfigured) {
 export { app as firebaseApp, auth, db, storage };
 
 export const adminEmail =
-  process.env.NEXT_PUBLIC_ADMIN_EMAIL || "admin@gmail.com";
+  process.env.NEXT_PUBLIC_ADMIN_EMAIL || "edmund.chong1909@gmail.com";

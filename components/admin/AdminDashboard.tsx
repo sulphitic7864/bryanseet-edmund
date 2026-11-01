@@ -242,9 +242,9 @@ export default function AdminDashboard() {
       <header className="sticky top-0 z-40 border-b border-neutral-200 bg-white/90 backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-950/90">
         <div className="mx-auto flex max-w-[95rem] items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex min-w-0 items-center gap-3">
-            <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-yellow-500 text-sm font-black text-black">BS</div>
+            <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-yellow-500 text-sm font-black text-black">EC</div>
             <div className="min-w-0">
-              <div className="truncate font-black">Bryan Seet Admin</div>
+              <div className="truncate font-black">Edmund Chong Admin</div>
               <div className="truncate text-xs text-neutral-500">{statusText}</div>
             </div>
           </div>
@@ -276,22 +276,7 @@ export default function AdminDashboard() {
         </aside>
 
         <div className="min-w-0 space-y-5">
-          {!firebaseConfigured && (
-            <div className="rounded-2xl border border-amber-300 bg-amber-50 p-4 text-sm leading-6 text-amber-900 dark:border-amber-900 dark:bg-amber-950/30 dark:text-amber-200">
-              Firebase is not configured yet. Add the values from your Firebase Web App to <code>.env.local</code>. The dashboard is showing the local seed content until then.
-            </div>
-          )}
-          {contentError && <div className="rounded-2xl bg-red-50 p-4 text-sm text-red-700 dark:bg-red-950/30 dark:text-red-300"><strong>Firestore error:</strong> {contentError}. Local seed data is not being substituted for this error.</div>}
-          {firebaseConfigured && source === "fallback" && (
-            <div className="rounded-2xl border border-blue-200 bg-blue-50 p-4 text-sm leading-6 text-blue-800 dark:border-blue-900 dark:bg-blue-950/30 dark:text-blue-200">
-              No data exists in <code>site/content</code> yet, so the dashboard is using <code>data/siteContent.ts</code> as the initial fallback. Edit anything or click <strong>Create Firestore content</strong> below to save this data to Firestore. After that, Firestore becomes the only live content source.
-            </div>
-          )}
-          {firebaseConfigured && source === "firestore" && (
-            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm leading-6 text-emerald-800 dark:border-emerald-900 dark:bg-emerald-950/30 dark:text-emerald-200">
-              This dashboard is currently loaded from <strong>Firestore: site/content</strong>. Local seed content is not merged into these values.
-            </div>
-          )}
+          
           {notice && <div className="flex items-center gap-2 rounded-2xl bg-emerald-50 p-4 text-sm font-bold text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-300"><Check size={17} /> {notice}</div>}
           {error && <div className="rounded-2xl bg-red-50 p-4 text-sm text-red-700 dark:bg-red-950/30 dark:text-red-300">{error}</div>}
 
@@ -331,7 +316,7 @@ export default function AdminDashboard() {
                     label="Eyebrow"
                     value={draft.aboutSection.eyebrow}
                     onChange={(value) => patchAboutSection("eyebrow", value)}
-                    placeholder="About Bryan"
+                    placeholder="About Edmund"
                   />
                   <TextArea
                     label="Main heading"
@@ -586,7 +571,7 @@ export default function AdminDashboard() {
             <div className="flex gap-2">
               <button type="button" onClick={reset} disabled={!dirty || saving} className="inline-flex items-center gap-2 rounded-xl border border-neutral-300 px-4 py-2.5 text-sm font-bold disabled:opacity-40 dark:border-neutral-700"><RotateCcw size={16} /> Reset</button>
               <button type="button" onClick={save} disabled={(existsInFirestore && !dirty) || saving || !firebaseConfigured || source === "error"} className="inline-flex items-center gap-2 rounded-xl bg-yellow-500 px-5 py-2.5 text-sm font-black text-black hover:bg-yellow-400 disabled:cursor-not-allowed disabled:opacity-40">
-                {saving ? <Loader2 size={16} className="animate-spin" /> : <Save size={16} />} {saving ? "Saving…" : existsInFirestore ? "Save changes" : "Create Firestore content"}
+                {saving ? <Loader2 size={16} className="animate-spin" /> : <Save size={16} />} {saving ? "Saving…" : existsInFirestore ? "Save changes" : "Save"}
               </button>
             </div>
           </div>

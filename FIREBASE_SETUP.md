@@ -3,7 +3,7 @@
 1. Firebase Console → Project Settings → Add Web App.
 2. Copy Web App config values into `.env.local` using `.env.example`.
 3. Authentication → Sign-in method → enable Email/Password.
-4. Authentication → Users → add `admin@gmail.com` and choose a secure password.
+4. Authentication → Users → add `edmund.chong1909@gmail.com` and choose a secure password.
 5. Firestore → Create database.
 6. Firestore → Rules → paste/publish `firestore.rules`.
 7. Optional direct uploads: upgrade/enable Cloud Storage, then Storage → Rules → paste/publish `storage.rules`.

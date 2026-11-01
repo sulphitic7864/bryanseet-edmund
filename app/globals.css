@@ -1,14 +1,74 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
-:root { color-scheme: light; }
-.dark { color-scheme: dark; }
+
+:root {
+  --brand-navy: #091b2a;
+  --brand-navy-soft: #112639;
+  --brand-gold: #c9a86a;
+  --brand-gold-soft: #f5e7c1;
+  --brand-ivory: #f7f5f1;
+  --brand-white: #ffffff;
+  --brand-text: #111827;
+  --brand-text-soft: #46556a;
+  --brand-border: rgba(9, 27, 42, 0.12);
+  --brand-shadow: rgba(9, 27, 42, 0.08);
+  color-scheme: light;
+}
+
+.dark {
+  --brand-navy: #071827;
+  --brand-navy-soft: #0d1f31;
+  --brand-gold: #d4b36d;
+  --brand-gold-soft: rgba(212, 179, 109, 0.18);
+  --brand-ivory: #0d1a2a;
+  --brand-white: #0f172a;
+  --brand-text: #f8fafc;
+  --brand-text-soft: #bfd0e0;
+  --brand-border: rgba(212, 179, 109, 0.22);
+  --brand-shadow: rgba(2, 6, 23, 0.34);
+  color-scheme: dark;
+}
+
 html { scroll-behavior: smooth; }
-body { margin:0; background:#fff; color:#262626; font-family: Arial, Helvetica, sans-serif; }
-.dark body { background:#0a0a0a; color:#e5e5e5; }
-.prose-custom h2 { font-size:1.65rem; font-weight:800; margin-top:2rem; margin-bottom:.8rem; }
-.prose-custom h3 { font-size:1.3rem; font-weight:700; margin-top:1.5rem; margin-bottom:.6rem; }
-.prose-custom h4 { font-size:1.1rem; font-weight:700; margin-top:1.2rem; }
-.prose-custom p { line-height:1.8; margin:.9rem 0; color:#525252; }
-.dark .prose-custom p { color:#a3a3a3; }
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #f9f7f3 0%, #f4f2ee 100%);
+  color: var(--brand-text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dark body {
+  background: linear-gradient(180deg, #071827 0%, #0b1624 100%);
+  color: var(--brand-text);
+}
+
+.prose-custom h2 {
+  font-size: 1.65rem;
+  font-weight: 800;
+  margin-top: 2rem;
+  margin-bottom: .8rem;
+}
+
+.prose-custom h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: .6rem;
+}
+
+.prose-custom h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 1.2rem;
+}
+
+.prose-custom p {
+  line-height: 1.8;
+  margin: .9rem 0;
+  color: var(--brand-text-soft);
+}
+
+.dark .prose-custom p { color: #c5d1df; }
 .prose-custom ul { list-style:disc; padding-left:1.4rem; margin:1rem 0; }
 .prose-custom li { margin:.45rem 0; line-height:1.7; }

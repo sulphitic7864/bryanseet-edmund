@@ -1,4 +1,4 @@
-# Bryan Seet Portfolio — Next.js + Tailwind + Firebase Admin
+# Edmund Chong Portfolio — Next.js + Tailwind + Firebase Admin
 
 This project is a Next.js 16 + Tailwind CSS portfolio with a Firebase-powered admin dashboard.
 

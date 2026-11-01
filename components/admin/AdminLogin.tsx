@@ -6,7 +6,7 @@ import {
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { LockKeyhole, Mail } from "lucide-react";
+import { Eye, EyeOff, LockKeyhole, Mail } from "lucide-react";
 import { adminEmail, auth, firebaseConfigured } from "@/lib/firebase";
 import { useAdminSession } from "@/lib/useAdminSession";
 
@@ -15,6 +15,7 @@ export default function AdminLogin() {
   const { user, loading: sessionLoading } = useAdminSession();
   const [email, setEmail] = useState(adminEmail);
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
@@ -68,10 +69,10 @@ export default function AdminLogin() {
     <div className="min-h-screen bg-neutral-950 px-5 py-12 text-white">
       <div className="mx-auto flex min-h-[calc(100vh-6rem)] max-w-md items-center">
         <div className="w-full rounded-[2rem] border border-neutral-800 bg-neutral-900 p-7 shadow-2xl sm:p-9">
-          <div className="grid h-12 w-12 place-items-center rounded-2xl bg-yellow-500 font-black text-black">BS</div>
+          <div className="grid h-12 w-12 place-items-center rounded-2xl bg-yellow-500 font-black text-black">EC</div>
           <div className="mt-6 text-xs font-black uppercase tracking-[.22em] text-yellow-400">Admin</div>
           <h1 className="mt-2 text-3xl font-black">Website dashboard</h1>
-          <p className="mt-3 text-sm leading-6 text-neutral-400">Sign in with the Bryan Seet admin account to update the public website.</p>
+          <p className="mt-3 text-sm leading-6 text-neutral-400">Sign in with the Edmund Chong admin account to update the public website.</p>
 
           {!firebaseConfigured && (
             <div className="mt-5 rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 text-sm text-amber-200">
@@ -99,13 +100,22 @@ export default function AdminLogin() {
               <div className="flex items-center gap-2 rounded-xl border border-neutral-700 bg-neutral-950 px-3">
                 <LockKeyhole size={17} className="text-neutral-500" />
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
-                  className="w-full bg-transparent py-3 outline-none"
+                  className="min-w-0 w-full bg-transparent py-3 outline-none"
                   autoComplete="current-password"
                   required
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((visible) => !visible)}
+                  className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-neutral-400 transition hover:bg-neutral-800 hover:text-white"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  title={showPassword ? "Hide password" : "Show password"}
+                >
+                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                </button>
               </div>
             </label>
 

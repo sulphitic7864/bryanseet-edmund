@@ -72,7 +72,7 @@ export type SiteContent = {
  * in Firebase Authentication (Email/Password provider).
  */
 export const defaultSiteContent: SiteContent = {
-  name: "Bryan Seet",
+  name: "Edmund Chong",
   role: "Prudential Wealth Manager",
   masRep: "SZY300733248",
   eyebrow: "Financial Planning • Protection • Long-Term Wealth",
@@ -80,7 +80,7 @@ export const defaultSiteContent: SiteContent = {
   heroText:
     "I help individuals and families make clearer financial decisions through thoughtful planning, protection strategies, and regular reviews built around real-life goals.",
   aboutSection: {
-    eyebrow: "About Bryan",
+    eyebrow: "About Edmund",
     title: "Advice built around people, not pressure.",
     features: [
       {
@@ -147,7 +147,7 @@ export const defaultSiteContent: SiteContent = {
     {
       title: "Informative and patient",
       quote:
-        "Bryan took the time to explain how the plan worked and stayed patient throughout the process. I felt comfortable asking questions and would be happy to recommend him.",
+        "Edmund took the time to explain how the plan worked and stayed patient throughout the process. I felt comfortable asking questions and would be happy to recommend him.",
       name: "Rifdi",
       role: "Visitor Management Agent",
       image:
@@ -156,7 +156,7 @@ export const defaultSiteContent: SiteContent = {
     {
       title: "Approachable and responsive",
       quote:
-        "What stood out was how clearly Bryan explained things and how responsive he was whenever I needed help. He made financial protection feel much easier to understand.",
+        "What stood out was how clearly Edmund explained things and how responsive he was whenever I needed help. He made financial protection feel much easier to understand.",
       name: "Maricor & Maria",
       role: "IT Analysts",
       image:
@@ -165,7 +165,7 @@ export const defaultSiteContent: SiteContent = {
     {
       title: "Customer-focused and genuine",
       quote:
-        "Bryan listened carefully, explained the options without pressure, and followed up consistently. His professionalism and genuine concern gave us confidence in our decisions.",
+        "Edmund listened carefully, explained the options without pressure, and followed up consistently. His professionalism and genuine concern gave us confidence in our decisions.",
       name: "Pauline & Anthony",
       role: "Business Owners",
       image:
@@ -174,7 +174,7 @@ export const defaultSiteContent: SiteContent = {
     {
       title: "Dedicated and professional",
       quote:
-        "Bryan focuses on understanding our needs rather than hard selling. He is sincere, reliable, thoughtful, and makes the effort to build a real relationship with his clients.",
+        "Edmund focuses on understanding our needs rather than hard selling. He is sincere, reliable, thoughtful, and makes the effort to build a real relationship with his clients.",
       name: "Joo Li & Gordon",
       role: "Clients",
       image:

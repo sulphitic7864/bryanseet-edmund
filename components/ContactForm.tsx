@@ -11,7 +11,7 @@ export default function ContactForm() {
   function submit(e: FormEvent) {
     e.preventDefault();
     const text =
-      `Hi Bryan, I'm ${name || "visiting your website"}. ${message}`.trim();
+      `Hi Edmund, I'm ${name || "visiting your website"}. ${message}`.trim();
     window.open(
       `https://wa.me/${siteContent.contact.whatsappNumber}?text=${encodeURIComponent(text)}`,
       "_blank",

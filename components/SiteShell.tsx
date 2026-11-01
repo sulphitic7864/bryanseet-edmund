@@ -19,16 +19,16 @@ export function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-4 z-50 mx-auto max-w-[85rem] px-3">
-      <nav className="rounded-[36px] border border-yellow-100/60 bg-white/85 px-5 py-3 shadow-sm backdrop-blur-xl dark:border-neutral-700 dark:bg-neutral-900/90">
+      <nav className="rounded-[36px] border border-[#e8d9b5] bg-[#fffdfb]/90 px-5 py-3 shadow-[0_12px_30px_rgba(9,27,42,0.08)] backdrop-blur-xl dark:border-[#33465d] dark:bg-[#0d1d2d]/90">
         <div className="flex items-center justify-between">
           <Link
             href="/"
             className="flex items-center gap-3 font-black tracking-tight"
           >
-            <span className="grid h-10 w-10 place-items-center rounded-full bg-yellow-500 text-sm text-black">
+            <span className="grid h-10 w-10 place-items-center rounded-full bg-[#091b2a] text-sm font-black tracking-[0.08em] text-[#d5b36a] shadow-sm ring-1 ring-[#d5b36a]/40">
               BS
             </span>
-            <span className="hidden sm:block">{siteContent.name}</span>
+            <span className="hidden text-[#0b1d2d] dark:text-[#f8fafc] sm:block">{siteContent.name}</span>
           </Link>
 
           <div className="hidden items-center gap-6 md:flex">
@@ -36,7 +36,7 @@ export function Header() {
               <Link
                 key={href}
                 href={`/${href}`}
-                className="text-sm font-semibold text-neutral-700 transition hover:text-yellow-600 dark:text-neutral-300"
+                className="text-sm font-semibold text-[#203246] transition hover:text-[#b38b48] dark:text-[#dfeaf7] dark:hover:text-[#f0c979]"
               >
                 {name}
               </Link>
@@ -50,7 +50,7 @@ export function Header() {
               type="button"
               aria-label="Toggle navigation"
               onClick={() => setOpen(!open)}
-              className="rounded-full p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+              className="rounded-full p-2 text-[#0b1d2d] hover:bg-[#f3ead2] dark:text-[#f5f7fa] dark:hover:bg-[#122033]"
             >
               {open ? <X /> : <Menu />}
             </button>
@@ -58,13 +58,13 @@ export function Header() {
         </div>
 
         {open && (
-          <div className="mt-4 grid gap-3 border-t border-neutral-200 pt-4 dark:border-neutral-700 md:hidden">
+          <div className="mt-4 grid gap-3 border-t border-[#e8dfcf] pt-4 dark:border-[#2d3a49] md:hidden">
             {links.map(([name, href]) => (
               <Link
                 key={href}
                 href={`/${href}`}
                 onClick={() => setOpen(false)}
-                className="rounded-xl px-2 py-2 font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                className="rounded-xl px-2 py-2 font-semibold text-[#203246] hover:bg-[#f8f1e0] dark:text-[#eaf0f7] dark:hover:bg-[#112234]"
               >
                 {name}
               </Link>
@@ -79,10 +79,10 @@ export function Header() {
 export function Footer() {
   const { content: siteContent } = useSiteContent();
   return (
-    <footer className="mt-20 border-t border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-950">
-      <div className="mx-auto flex max-w-[85rem] flex-col gap-5 px-5 py-10 text-sm text-neutral-600 dark:text-neutral-400 md:flex-row md:items-center md:justify-between">
+    <footer className="mt-20 border-t border-[#e8dfcf] bg-[#f5f1ea] dark:border-[#223244] dark:bg-[#091d2d]">
+      <div className="mx-auto flex max-w-[85rem] flex-col gap-5 px-5 py-10 text-sm text-[#556479] dark:text-[#cfdae6] md:flex-row md:items-center md:justify-between">
         <div>
-          <div className="text-lg font-black text-neutral-900 dark:text-white">
+          <div className="text-lg font-black text-[#0b1d2d] dark:text-[#f8fafc]">
             {siteContent.name}
           </div>
           <div>
@@ -94,7 +94,7 @@ export function Footer() {
             <Link
               key={href}
               href={`/${href}`}
-              className="hover:text-yellow-600"
+              className="hover:text-[#b38b48] dark:hover:text-[#f0c979]"
             >
               {name}
             </Link>

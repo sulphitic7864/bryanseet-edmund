@@ -6,11 +6,11 @@ import AppChrome from "@/components/AppChrome";
 
 export const metadata: Metadata = {
   title: {
-    default: "Bryan Seet | Prudential Senior Wealth Manager",
-    template: "%s | Bryan Seet",
+    default: "Edmund Chong | Prudential Wealth Manager",
+    template: "%s | Edmund Chong",
   },
   description:
-    "Bryan Seet is a Prudential Wealth Manager focused on long-term financial planning, protection, and client relationships.",
+    "Edmund Chong is a Prudential Wealth Manager focused on long-term financial planning, protection, and client relationships.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

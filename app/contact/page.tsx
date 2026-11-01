@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ContactPageClient from "@/components/ContactPageClient";
 
-export const metadata: Metadata = { title: "Contact Bryan Seet" };
+export const metadata: Metadata = { title: "Contact Edmund Chong" };
 
 export default function ContactPage() {
   return <ContactPageClient />;

@@ -6,7 +6,7 @@ import {
   type SiteContent,
 } from "@/data/siteContent";
 
-const COLLECTION = "site";
+const COLLECTION = "edmund";
 const DOCUMENT = "content";
 
 function cleanForFirestore<T>(value: T): T {
@@ -20,7 +20,7 @@ function isAboutFeatureIcon(value: unknown): value is AboutFeatureIcon {
 }
 
 /**
- * Firestore is the source of truth whenever the site/content document exists.
+ * Firestore is the source of truth whenever the edmund/content document exists.
  *
  * IMPORTANT: Do not merge with defaultSiteContent here. Doing that makes local
  * seed values leak back into the live website whenever a Firestore field is
