@@ -12,7 +12,6 @@ import {
   RotateCcw,
   Save,
   Trash2,
-  Upload,
 } from "lucide-react";
 import {
   defaultSiteContent,
@@ -26,7 +25,6 @@ import {
 import { useSiteContent } from "@/components/SiteContentProvider";
 import { auth } from "@/lib/firebase";
 import { saveSiteContent } from "@/lib/siteRepository";
-import { uploadSiteMedia } from "@/lib/uploadMedia";
 import { useAdminSession } from "@/lib/useAdminSession";
 
 const tabs = [
@@ -108,42 +106,6 @@ function AddButton({ onClick, children }: { onClick: () => void; children: React
     >
       <Plus size={16} /> {children}
     </button>
-  );
-}
-
-function FileUpload({ onUploaded, accept = "image/*", label = "Upload file" }: { onUploaded: (url: string) => void; accept?: string; label?: string }) {
-  const [uploading, setUploading] = useState(false);
-  const [error, setError] = useState("");
-
-  async function upload(file?: File) {
-    if (!file) return;
-    setError("");
-    try {
-      setUploading(true);
-      const url = await uploadSiteMedia(file);
-      onUploaded(url);
-    } catch (uploadError) {
-      setError(uploadError instanceof Error ? uploadError.message : "Upload failed.");
-    } finally {
-      setUploading(false);
-    }
-  }
-
-  return (
-    <div className="grid gap-2">
-      <label className="inline-flex w-fit cursor-pointer items-center gap-2 rounded-xl border border-neutral-300 px-4 py-2.5 text-sm font-bold hover:bg-neutral-50 dark:border-neutral-700 dark:hover:bg-neutral-800">
-        {uploading ? <Loader2 size={16} className="animate-spin" /> : <Upload size={16} />}
-        {uploading ? "Uploading…" : label}
-        <input
-          type="file"
-          accept={accept}
-          disabled={uploading}
-          className="hidden"
-          onChange={(event) => upload(event.target.files?.[0])}
-        />
-      </label>
-      {error && <p className="text-xs leading-5 text-red-600">{error}</p>}
-    </div>
   );
 }
 
@@ -291,7 +253,6 @@ export default function AdminDashboard() {
                 <div className="md:col-span-2"><TextArea label="Hero description" value={draft.heroText} onChange={(value) => patch("heroText", value)} /></div>
                 <div className="md:col-span-2 grid gap-3">
                   <Field label="Portrait URL" value={draft.portrait} onChange={(value) => patch("portrait", value)} placeholder="https://... or /images/profile.jpeg" />
-                  <FileUpload onUploaded={(url) => patch("portrait", url)} label="Upload portrait" />
                   {draft.portrait && <img src={draft.portrait} alt="Portrait preview" className="h-44 w-36 rounded-2xl object-cover" />}
                 </div>
               </div>
@@ -506,7 +467,7 @@ export default function AdminDashboard() {
           )}
 
           {activeTab === "media" && (
-            <Card title="Photos & videos" text="Use a URL, YouTube/Vimeo embed URL, or upload an image/video to Firebase Storage.">
+            <Card title="Photos & videos" text="Use image URLs or YouTube/Vimeo embed URLs.">
               <div className="grid gap-5">
                 {draft.media.map((item, index) => (
                   <div key={index} className="rounded-2xl border border-neutral-200 p-4 dark:border-neutral-800">
@@ -521,8 +482,7 @@ export default function AdminDashboard() {
                       <div className="md:col-span-2"><Field label={item.type === "video" ? "Video/embed URL" : "Image URL"} value={item.src} onChange={(value) => { const next: MediaItem[] = [...draft.media]; next[index] = { ...item, src: value }; patch("media", next); }} /></div>
                       {item.type === "video" && <div className="md:col-span-2"><Field label="Poster image URL (optional)" value={item.poster || ""} onChange={(value) => { const next: MediaItem[] = [...draft.media]; next[index] = { ...item, poster: value }; patch("media", next); }} /></div>}
                     </div>
-                    <div className="mt-4 flex flex-wrap items-center gap-3">
-                      <FileUpload accept={item.type === "video" ? "video/*" : "image/*"} label={item.type === "video" ? "Upload video" : "Upload image"} onUploaded={(url) => { const next: MediaItem[] = [...draft.media]; next[index] = { ...item, src: url }; patch("media", next); }} />
+                    <div className="mt-4">
                       <DeleteButton onClick={() => patch("media", draft.media.filter((_, itemIndex) => itemIndex !== index))} />
                     </div>
                     {item.src && item.type === "image" && <img src={item.src} alt="Media preview" className="mt-4 h-44 w-full max-w-sm rounded-2xl object-cover" />}
@@ -545,8 +505,7 @@ export default function AdminDashboard() {
                       <Field label="Image URL" value={item.image} onChange={(value) => { const next: TestimonialItem[] = [...draft.testimonials]; next[index] = { ...item, image: value }; patch("testimonials", next); }} />
                       <div className="md:col-span-2"><TextArea label="Testimonial" value={item.quote} onChange={(value) => { const next: TestimonialItem[] = [...draft.testimonials]; next[index] = { ...item, quote: value }; patch("testimonials", next); }} /></div>
                     </div>
-                    <div className="mt-4 flex flex-wrap items-center gap-3">
-                      <FileUpload label="Upload client photo" onUploaded={(url) => { const next: TestimonialItem[] = [...draft.testimonials]; next[index] = { ...item, image: url }; patch("testimonials", next); }} />
+                    <div className="mt-4">
                       <DeleteButton onClick={() => patch("testimonials", draft.testimonials.filter((_, itemIndex) => itemIndex !== index))} />
                     </div>
                   </div>

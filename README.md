@@ -16,9 +16,7 @@ All public website content is stored in one Firestore document:
 
 `site/content`
 
-Uploaded photos/videos are stored under:
-
-`site-media/*`
+Images and videos are stored through public URLs entered in the admin dashboard. The project does not perform direct file uploads.
 
 The local `data/siteContent.ts` object is only a safe fallback and initial seed. It contains no admin password. Firestore is authoritative whenever `site/content` exists and contains data; local values are not merged into an existing Firestore document.
 
@@ -53,28 +51,24 @@ NEXT_PUBLIC_ADMIN_EMAIL=admin@gmail.com
 
 ## 3. Security rules
 
-Deploy/paste the included `firestore.rules` into Firestore Rules and `storage.rules` into Storage Rules.
+Deploy/paste the included `firestore.rules` into Firestore Rules.
 
 The included rules:
 
-- allow anyone to read the public `site/content` document;
-- allow only the authenticated `admin@gmail.com` user to create/update/delete it;
-- allow public reads for website media;
-- allow only the admin to upload/delete media.
+- allow anyone to read the public `edmund/content` document;
+- allow only the authenticated `edmund.chong1909@gmail.com` user to create/update/delete it.
 
-If you change `NEXT_PUBLIC_ADMIN_EMAIL`, also change the email in both rule files. Environment variables are not available inside Firebase Security Rules.
+If you change `NEXT_PUBLIC_ADMIN_EMAIL`, also change the email in the rule file. Environment variables are not available inside Firebase Security Rules.
 
 With Firebase CLI installed, rules can be deployed with:
 
 ```bash
-firebase deploy --only firestore:rules,storage
+firebase deploy --only firestore:rules
 ```
 
-## 4. Firebase Storage note
+## 4. Image and video URLs
 
-Direct image/video uploads in the admin dashboard use Cloud Storage for Firebase. New Firebase projects currently require the Blaze plan to enable Cloud Storage. If you do not enable Storage, the dashboard still supports normal image URLs and YouTube/Vimeo embed URLs.
-
-For uploaded video files, the public site renders an HTML5 video player. For YouTube/Vimeo, paste an embed URL such as:
+Enter public image or video URLs directly in the admin dashboard. The public site supports YouTube and Vimeo embed URLs such as:
 
 ```text
 https://www.youtube.com/embed/VIDEO_ID
