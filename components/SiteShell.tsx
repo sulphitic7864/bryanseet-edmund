@@ -25,8 +25,12 @@ export function Header() {
             href="/"
             className="flex items-center gap-3 font-black tracking-tight"
           >
-            <span className="grid h-10 w-10 place-items-center rounded-full bg-[#091b2a] text-sm font-black tracking-[0.08em] text-[#d5b36a] shadow-sm ring-1 ring-[#d5b36a]/40">
-              BS
+            <span className="grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-full bg-white shadow-sm ring-1 ring-[#d5b36a]/40">
+              <img
+                src="/images/logo.jpeg"
+                alt="Chongforwealth logo"
+                className="h-full w-full object-cover"
+              />
             </span>
             <span className="hidden text-[#0b1d2d] dark:text-[#f8fafc] sm:block">{siteContent.name}</span>
           </Link>
