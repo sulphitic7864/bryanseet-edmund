@@ -79,7 +79,7 @@ export function Hero() {
           <div className="mb-5 inline-flex rounded-full bg-[#f5ebd0] px-4 py-2 text-xs font-black uppercase tracking-widest text-[#8b6b2d] dark:bg-[#1f2b3d] dark:text-[#f0c979]">
             {siteContent.eyebrow}
           </div>
-          <h1 className="text-5xl font-black leading-[.96] tracking-tight sm:text-6xl lg:text-7xl">
+          <h1 className="text-[2rem] font-black leading-[1.02] tracking-tight xs:text-[2.5rem] sm:text-6xl lg:text-7xl">
             {siteContent.heroTitle}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-600 dark:text-neutral-400">
