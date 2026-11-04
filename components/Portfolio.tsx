@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { useSiteContent } from "@/components/SiteContentProvider";
 import ContactForm from "./ContactForm";
+import SafeImage from "./SafeImage";
 
 function Container({
   children,
@@ -119,13 +120,14 @@ export function Hero() {
         </div>
         <div className="relative mx-auto w-full max-w-lg order-first lg:order-last">
           <div className="absolute -inset-5 -z-10 rounded-[3rem] bg-[#f2dca1]/60 blur-3xl dark:bg-[#13314d]/60" />
-          <div className="overflow-hidden rounded-[2.2rem] bg-[#eef3f7] shadow-[0_20px_40px_rgba(9,27,42,0.12)] dark:bg-[#0f1d2d]">
-            <img
+          {siteContent.portrait?.trim() && (
+            <SafeImage
               src={siteContent.portrait}
               alt="Edmund Chong"
               className="aspect-[4/5] w-full object-cover object-top"
+              wrapperClassName="overflow-hidden rounded-[2.2rem] bg-[#eef3f7] shadow-[0_20px_40px_rgba(9,27,42,0.12)] dark:bg-[#0f1d2d]"
             />
-          </div>
+          )}
           <div className="absolute -bottom-5 left-5 right-5 rounded-2xl border border-[#efe1bd] bg-[#fffdfb]/90 p-4 shadow-xl backdrop-blur dark:border-[#2d425b] dark:bg-[#0d1d2d]/90">
             <div className="font-black text-[#091b2a] dark:text-[#f8fafc]">{siteContent.name}</div>
             <div className="text-sm text-[#4b5d72] dark:text-[#dfe9f7]">
@@ -225,12 +227,13 @@ export function Credentials() {
 
 export function MediaGallery() {
   const { content: siteContent } = useSiteContent();
+  const section = siteContent.eventsSection;
   return (
     <Container id="events" className="py-16">
       <SectionHeading
-        eyebrow="Events & Moments"
-        title="Beyond the meeting room"
-        text="Professional milestones, industry events, and moments that reflect the relationships behind the work. The gallery is ready for both photos and embedded videos."
+        eyebrow={section?.eyebrow || "Events & Moments"}
+        title={section?.title || "Beyond the meeting room"}
+        text={section?.text || "Professional milestones, industry events, and moments that reflect the relationships behind the work. The gallery is ready for both photos and embedded videos."}
       />
       <div className="mt-10 grid gap-5 md:grid-cols-2">
         {siteContent.media.map((item, index) => (
@@ -260,13 +263,12 @@ export function MediaGallery() {
                 )}
               </div>
             ) : (
-              <div className="relative overflow-hidden">
-                <img
+              <SafeImage
                   src={item.src}
                   alt={item.title}
                   className="h-80 w-full object-cover transition duration-500 group-hover:scale-[1.025]"
+                  wrapperClassName="relative overflow-hidden"
                 />
-              </div>
             )}
             <div className="p-5">
               <h3 className="text-lg font-black text-[#0d1b2a] dark:text-[#f8fafc]">{item.title}</h3>
@@ -312,7 +314,7 @@ export function Testimonials() {
               dark:bg-[#0d1d2d]
             "
           >
-            <img
+            <SafeImage
               src={item.image}
               alt={`${item.name} with Edmund Chong`}
               className="h-60 w-full object-cover md:h-full"

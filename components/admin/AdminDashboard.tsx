@@ -32,7 +32,7 @@ const tabs = [
   ["about", "About"],
   ["stats", "Stats"],
   ["credentials", "Credentials"],
-  ["media", "Media"],
+  ["media", "Events & Moments"],
   ["testimonials", "Testimonials"],
   ["contact", "Contact"],
 ] as const;
@@ -150,6 +150,18 @@ export default function AdminDashboard() {
     setDraft((current) => ({
       ...current,
       aboutSection: { ...current.aboutSection, [key]: value },
+    }));
+    setDirty(true);
+    setNotice("");
+  }
+
+  function patchEventsSection<K extends keyof SiteContent["eventsSection"]>(
+    key: K,
+    value: SiteContent["eventsSection"][K],
+  ) {
+    setDraft((current) => ({
+      ...current,
+      eventsSection: { ...(current.eventsSection || defaultSiteContent.eventsSection), [key]: value },
     }));
     setDirty(true);
     setNotice("");
@@ -467,8 +479,31 @@ export default function AdminDashboard() {
           )}
 
           {activeTab === "media" && (
-            <Card title="Photos & videos" text="Use image URLs or YouTube/Vimeo embed URLs.">
+            <Card title="Events & Moments" text="Update the section heading and manage photos or videos shown in the Events section.">
               <div className="grid gap-5">
+                <div className="grid gap-4 rounded-2xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-950 md:grid-cols-2">
+                  <Field
+                    label="Section eyebrow"
+                    value={draft.eventsSection?.eyebrow || ""}
+                    onChange={(value) => patchEventsSection("eyebrow", value)}
+                    placeholder="Events & Moments"
+                  />
+                  <Field
+                    label="Section title"
+                    value={draft.eventsSection?.title || ""}
+                    onChange={(value) => patchEventsSection("title", value)}
+                    placeholder="Beyond the meeting room"
+                  />
+                  <div className="md:col-span-2">
+                    <TextArea
+                      label="Section description"
+                      value={draft.eventsSection?.text || ""}
+                      onChange={(value) => patchEventsSection("text", value)}
+                      rows={3}
+                      placeholder="Describe your events and moments."
+                    />
+                  </div>
+                </div>
                 {draft.media.map((item, index) => (
                   <div key={index} className="rounded-2xl border border-neutral-200 p-4 dark:border-neutral-800">
                     <div className="grid gap-4 md:grid-cols-2">
@@ -488,7 +523,7 @@ export default function AdminDashboard() {
                     {item.src && item.type === "image" && <img src={item.src} alt="Media preview" className="mt-4 h-44 w-full max-w-sm rounded-2xl object-cover" />}
                   </div>
                 ))}
-                <AddButton onClick={() => patch("media", [...draft.media, { type: "image", title: "", caption: "", src: "" }])}>Add media</AddButton>
+                <AddButton onClick={() => patch("media", [...draft.media, { type: "image", title: "", caption: "", src: "" }])}>Add event</AddButton>
               </div>
             </Card>
           )}

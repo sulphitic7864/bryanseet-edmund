@@ -57,6 +57,20 @@ export function siteContentFromFirestore(value: unknown): SiteContent {
     stats: Array.isArray(raw.stats) ? raw.stats : [],
     credentials: Array.isArray(raw.credentials) ? raw.credentials : [],
     portrait: typeof raw.portrait === "string" ? raw.portrait : "",
+    eventsSection: {
+      eyebrow:
+        typeof raw.eventsSection?.eyebrow === "string"
+          ? raw.eventsSection.eyebrow
+          : "",
+      title:
+        typeof raw.eventsSection?.title === "string"
+          ? raw.eventsSection.title
+          : "",
+      text:
+        typeof raw.eventsSection?.text === "string"
+          ? raw.eventsSection.text
+          : "",
+    },
     media: Array.isArray(raw.media) ? raw.media : [],
     testimonials: Array.isArray(raw.testimonials) ? raw.testimonials : [],
     contact: {

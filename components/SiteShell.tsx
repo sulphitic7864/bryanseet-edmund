@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import ThemeToggle from "./ThemeToggle";
 import { useSiteContent } from "@/components/SiteContentProvider";
+import SafeImage from "./SafeImage";
 
 const links = [
   ["About", "#about"],
@@ -26,10 +27,11 @@ export function Header() {
             className="flex items-center gap-3 font-black tracking-tight"
           >
             <span className="grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-full bg-white shadow-sm ring-1 ring-[#d5b36a]/40">
-              <img
+              <SafeImage
                 src="/images/logo.jpeg"
                 alt="Chongforwealth logo"
                 className="h-full w-full object-cover"
+                wrapperClassName="h-full w-full"
               />
             </span>
             <span className="hidden text-[#0b1d2d] dark:text-[#f8fafc] sm:block">{siteContent.name}</span>

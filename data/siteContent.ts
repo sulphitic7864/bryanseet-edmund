@@ -35,6 +35,12 @@ export type AboutSection = {
   features: AboutFeatureItem[];
 };
 
+export type EventsSection = {
+  eyebrow: string;
+  title: string;
+  text: string;
+};
+
 export type TestimonialItem = {
   title: string;
   quote: string;
@@ -61,6 +67,7 @@ export type SiteContent = {
   stats: StatItem[];
   credentials: CredentialItem[];
   portrait: string;
+  eventsSection: EventsSection;
   media: MediaItem[];
   testimonials: TestimonialItem[];
   contact: ContactInfo;
@@ -115,6 +122,11 @@ export const defaultSiteContent: SiteContent = {
     { title: "Top Rookie", detail: "Champion • 2025" },
   ],
   portrait: "/images/profile.jpeg",
+  eventsSection: {
+    eyebrow: "Events & Moments",
+    title: "Beyond the meeting room",
+    text: "Professional milestones, industry events, and moments that reflect the relationships behind the work. The gallery is ready for both photos and embedded videos.",
+  },
   media: [
     {
       type: "image",

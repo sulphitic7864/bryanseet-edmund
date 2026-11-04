@@ -44,6 +44,11 @@ const emptySiteContent: SiteContent = {
   stats: [],
   credentials: [],
   portrait: "",
+  eventsSection: {
+    eyebrow: "",
+    title: "",
+    text: "",
+  },
   media: [],
   testimonials: [],
   contact: {
