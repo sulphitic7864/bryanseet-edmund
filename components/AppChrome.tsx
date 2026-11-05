@@ -19,7 +19,7 @@ export default function AppChrome({ children }: { children: ReactNode }) {
   // whether Firestore has an edmund/content document.
   if (loading) {
     return (
-      <main className="grid min-h-screen place-items-center bg-[#f7f4ee] px-6 text-[#0b1d2d] dark:bg-[#071827] dark:text-[#f8fafc]">
+      <main className="grid min-h-screen place-items-center bg-[#f7f4ee] px-6 text-[#0b1d2d] dark:bg-black dark:text-[#f8fafc]">
         <div className="text-center">
           <div className="mx-auto h-9 w-9 animate-spin rounded-full border-4 border-[#dfe3ea] border-t-[#caa96a] dark:border-[#1e2b3d] dark:border-t-[#d9b874]" />
           <p className="mt-4 text-sm font-semibold text-[#4f5d6d] dark:text-[#cfd8e3]">
@@ -34,7 +34,7 @@ export default function AppChrome({ children }: { children: ReactNode }) {
   // silently substitute local content or the problem becomes nearly invisible.
   if (error) {
     return (
-      <main className="grid min-h-screen place-items-center bg-[#f7f4ee] px-6 text-[#0b1d2d] dark:bg-[#071827] dark:text-[#f8fafc]">
+      <main className="grid min-h-screen place-items-center bg-[#f7f4ee] px-6 text-[#0b1d2d] dark:bg-black dark:text-[#f8fafc]">
         <div className="max-w-lg rounded-3xl border border-[#f1d4a4] bg-[#fffaf2] p-6 text-center dark:border-[#5a4631] dark:bg-[#1d2430]">
           <h1 className="text-lg font-black text-[#8a5a1c] dark:text-[#f5d188]">
             Unable to load website content

@@ -20,7 +20,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-4 z-50 mx-auto max-w-[85rem] px-3">
-      <nav className="rounded-[36px] border border-[#e8d9b5] bg-[#fffdfb]/90 px-5 py-3 shadow-[0_12px_30px_rgba(9,27,42,0.08)] backdrop-blur-xl dark:border-[#33465d] dark:bg-[#0d1d2d]/90">
+      <nav className="rounded-[36px] border border-[#e8d9b5] bg-[#fffdfb]/90 px-5 py-3 shadow-[0_12px_30px_rgba(9,27,42,0.08)] backdrop-blur-xl dark:border-[#303030] dark:bg-black/90">
         <div className="flex items-center justify-between">
           <Link
             href="/"
@@ -28,10 +28,16 @@ export function Header() {
           >
             <span className="grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-full bg-white shadow-sm ring-1 ring-[#d5b36a]/40">
               <SafeImage
-                src="/images/logo.jpeg"
+                src="/images/logo-white.jpeg"
                 alt="Chongforwealth logo"
                 className="h-full w-full object-cover"
-                wrapperClassName="h-full w-full"
+                wrapperClassName="h-full w-full dark:hidden"
+              />
+              <SafeImage
+                src="/images/logo.jpeg"
+                alt="Chongforwealth logo"
+                className="hidden h-full w-full object-cover dark:block"
+                wrapperClassName="hidden h-full w-full dark:block"
               />
             </span>
             <span className="hidden text-[#0b1d2d] dark:text-[#f8fafc] sm:block">{siteContent.name}</span>
@@ -64,7 +70,7 @@ export function Header() {
         </div>
 
         {open && (
-          <div className="mt-4 grid gap-3 border-t border-[#e8dfcf] pt-4 dark:border-[#2d3a49] md:hidden">
+          <div className="mt-4 grid gap-3 border-t border-[#e8dfcf] pt-4 dark:border-[#2a2a2a] md:hidden">
             {links.map(([name, href]) => (
               <Link
                 key={href}
@@ -85,7 +91,7 @@ export function Header() {
 export function Footer() {
   const { content: siteContent } = useSiteContent();
   return (
-    <footer className="mt-20 border-t border-[#e8dfcf] bg-[#f5f1ea] dark:border-[#223244] dark:bg-[#091d2d]">
+    <footer className="mt-20 border-t border-[#e8dfcf] bg-[#f5f1ea] dark:border-[#262626] dark:bg-black">
       <div className="mx-auto flex max-w-[85rem] flex-col gap-5 px-5 py-10 text-sm text-[#556479] dark:text-[#cfdae6] md:flex-row md:items-center md:justify-between">
         <div>
           <div className="text-lg font-black text-[#0b1d2d] dark:text-[#f8fafc]">

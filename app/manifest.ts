@@ -6,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'Prudential Wealth Manager personal business website.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#ffffff',
-    theme_color: '#eab308',
+    background_color: '#000000',
+    theme_color: '#d4b36d',
   };
 }
