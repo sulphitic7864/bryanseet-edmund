@@ -77,7 +77,7 @@ export function Hero() {
     <Container className="py-14 lg:py-20">
       <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_.9fr]">
         <div className="order-last lg:order-first">
-          <div className="mb-5 inline-flex rounded-full bg-[#f5ebd0] px-4 py-2 text-xs font-black uppercase tracking-widest text-[#8b6b2d] dark:bg-[#1f2b3d] dark:text-[#f0c979]">
+          <div className="mb-5 inline-flex rounded-full bg-[#f5ebd0] px-4 py-2 text-xs font-black uppercase tracking-widest text-[#8b6b2d] dark:bg-[#171717] dark:text-[#f0c979]">
             {siteContent.eyebrow}
           </div>
           <h1 className="text-[2rem] font-black leading-[1.02] tracking-tight xs:text-[2.5rem] sm:text-6xl lg:text-7xl">
@@ -97,7 +97,7 @@ export function Hero() {
             </a>
             <Link
               href="/#credentials"
-              className="rounded-xl border border-[#d5c7a2] bg-white/60 px-5 py-3 font-bold text-[#0d1b2a] transition hover:bg-[#fffaf0] dark:border-[#39536f] dark:bg-[#102235] dark:text-[#f8fafc] dark:hover:bg-[#142a3d]"
+              className="rounded-xl border border-[#d5c7a2] bg-white/60 px-5 py-3 font-bold text-[#0d1b2a] transition hover:bg-[#fffaf0] dark:border-[#3a3a3a] dark:bg-[#111111] dark:text-[#f8fafc] dark:hover:bg-[#1a1a1a]"
             >
               View credentials
             </Link>
@@ -106,7 +106,7 @@ export function Hero() {
             {siteContent.stats.map((item) => (
               <div
                 key={item.label}
-                className="rounded-2xl border border-[#e7dbc0] bg-white/70 p-4 shadow-sm dark:border-[#2a3b4f] dark:bg-[#0d1c2c]"
+                className="rounded-2xl border border-[#e7dbc0] bg-white/70 p-4 shadow-sm dark:border-[#303030] dark:bg-[#111111]"
               >
                 <div className="text-2xl font-black text-[#b78f4f] dark:text-[#f0c979]">
                   {item.value}
@@ -119,16 +119,16 @@ export function Hero() {
           </div>
         </div>
         <div className="relative mx-auto w-full max-w-lg order-first lg:order-last">
-          <div className="absolute -inset-5 -z-10 rounded-[3rem] bg-[#f2dca1]/60 blur-3xl dark:bg-[#13314d]/60" />
+          <div className="absolute -inset-5 -z-10 rounded-[3rem] bg-[#f2dca1]/60 blur-3xl dark:bg-[#bfa46a]/10" />
           {siteContent.portrait?.trim() && (
             <SafeImage
               src={siteContent.portrait}
               alt="Edmund Chong"
               className="aspect-[4/5] w-full object-cover object-top"
-              wrapperClassName="overflow-hidden rounded-[2.2rem] bg-[#eef3f7] shadow-[0_20px_40px_rgba(9,27,42,0.12)] dark:bg-[#0f1d2d]"
+              wrapperClassName="overflow-hidden rounded-[2.2rem] bg-[#eef3f7] shadow-[0_20px_40px_rgba(0,0,0,0.12)] dark:bg-[#111111]"
             />
           )}
-          <div className="absolute -bottom-5 left-5 right-5 rounded-2xl border border-[#efe1bd] bg-[#fffdfb]/90 p-4 shadow-xl backdrop-blur dark:border-[#2d425b] dark:bg-[#0d1d2d]/90">
+          <div className="absolute -bottom-5 left-5 right-5 rounded-2xl border border-[#efe1bd] bg-[#fffdfb]/90 p-4 shadow-xl backdrop-blur dark:border-[#303030] dark:bg-black/90">
             <div className="font-black text-[#091b2a] dark:text-[#f8fafc]">{siteContent.name}</div>
             <div className="text-sm text-[#4b5d72] dark:text-[#dfe9f7]">
               {siteContent.role}
@@ -176,7 +176,7 @@ export function About() {
                 return (
                   <div
                     key={`${item.title}-${index}`}
-                    className="rounded-2xl border border-[#eadbb2] bg-[#faf7f1] p-5 shadow-sm dark:border-[#2c3b4e] dark:bg-[#0d1d2d]"
+                    className="rounded-2xl border border-[#eadbb2] bg-[#faf7f1] p-5 shadow-sm dark:border-[#303030] dark:bg-[#111111]"
                   >
                     <Icon className="text-[#b48b4a] dark:text-[#f0c979]" />
                     <h3 className="mt-3 font-black text-[#0b1d2d] dark:text-[#f8fafc]">{item.title}</h3>
@@ -205,9 +205,9 @@ export function Credentials() {
         {siteContent.credentials.map((item, index) => (
           <div
             key={item.title}
-            className="rounded-2xl border border-[#e8dcc2] bg-white/75 p-6 shadow-sm dark:border-[#2a3d52] dark:bg-[#0f1d2d]"
+            className="rounded-2xl border border-[#e8dcc2] bg-white/75 p-6 shadow-sm dark:border-[#303030] dark:bg-[#111111]"
           >
-            <div className="mb-5 inline-flex rounded-xl bg-[#f5ebd0] p-3 text-[#8b6b2d] dark:bg-[#1e2d3f] dark:text-[#f0c979]">
+            <div className="mb-5 inline-flex rounded-xl bg-[#f5ebd0] p-3 text-[#8b6b2d] dark:bg-[#171717] dark:text-[#f0c979]">
               {index === 0 ? (
                 <Award />
               ) : index === 4 ? (
@@ -239,7 +239,7 @@ export function MediaGallery() {
         {siteContent.media.map((item, index) => (
           <article
             key={`${item.title}-${index}`}
-            className="group overflow-hidden rounded-3xl border border-[#eadbb2] bg-white shadow-sm dark:border-[#2b3e4d] dark:bg-[#0d1d2d]"
+            className="group overflow-hidden rounded-3xl border border-[#eadbb2] bg-white shadow-sm dark:border-[#303030] dark:bg-[#111111]"
           >
             {item.type === "video" ? (
               <div className="relative aspect-video bg-black">
@@ -310,8 +310,8 @@ export function Testimonials() {
               duration-300
               hover:-translate-y-1
               hover:shadow-xl
-              dark:border-[#2d4257]
-              dark:bg-[#0d1d2d]
+              dark:border-[#303030]
+              dark:bg-[#111111]
             "
           >
             <SafeImage
@@ -340,7 +340,7 @@ export function Contact() {
   const { contact } = siteContent;
   return (
     <Container id="contact" className="py-16">
-      <div className="rounded-[2rem] bg-[#071827] p-7 text-white md:p-10 lg:p-12 shadow-[0_24px_50px_rgba(9,27,42,0.18)]">
+      <div className="rounded-[2rem] bg-black p-7 text-white md:p-10 lg:p-12 shadow-[0_24px_50px_rgba(0,0,0,0.18)]">
         <div className="grid gap-10 lg:grid-cols-[.9fr_1.1fr]">
           <div>
             <div className="text-xs font-black uppercase tracking-[.22em] text-[#f0c979]">
@@ -360,7 +360,7 @@ export function Contact() {
                 href={`https://wa.me/${contact.whatsappNumber}`}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#d4ae68] px-5 py-3 font-black text-[#071827] transition hover:bg-[#e0ba7b]"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#d4ae68] px-5 py-3 font-black text-black transition hover:bg-[#e0ba7b]"
               >
                 <MessageCircle size={18} /> WhatsApp
               </a>
@@ -369,7 +369,7 @@ export function Contact() {
                   href={contact.instagramUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl border border-[#34506b] bg-[#0d1d2d] px-5 py-3 font-bold text-white transition hover:border-[#d4ae68] hover:text-[#f0c979]"
+                  className="inline-flex items-center gap-2 rounded-xl border border-[#3a3a3a] bg-[#111111] px-5 py-3 font-bold text-white transition hover:border-[#d4ae68] hover:text-[#f0c979]"
                 >
                   <Instagram size={18} /> Instagram
                 </a>

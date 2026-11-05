@@ -18,7 +18,7 @@ export default function ThemeToggle() {
     <button
       onClick={toggle}
       aria-label="Toggle theme"
-      className="rounded-full border border-[#d8c39a] bg-[#f8f1df] p-2 text-[#0a1d2d] transition hover:bg-[#f1e2b1] dark:border-[#6d5c36] dark:bg-[#102438] dark:text-[#f3d68a]"
+      className="rounded-full border border-[#d8c39a] bg-[#f8f1df] p-2 text-[#0a1d2d] transition hover:bg-[#f1e2b1] dark:border-[#4a4a4a] dark:bg-black dark:text-[#f3d68a]"
     >
       {dark ? <Sun size={18} /> : <Moon size={18} />}
     </button>

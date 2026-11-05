@@ -16,12 +16,12 @@
 }
 
 .dark {
-  --brand-navy: #071827;
-  --brand-navy-soft: #0d1f31;
+  --brand-navy: #000000;
+  --brand-navy-soft: #0a0a0a;
   --brand-gold: #d4b36d;
   --brand-gold-soft: rgba(212, 179, 109, 0.18);
-  --brand-ivory: #0d1a2a;
-  --brand-white: #0f172a;
+  --brand-ivory: #050505;
+  --brand-white: #0a0a0a;
   --brand-text: #f8fafc;
   --brand-text-soft: #bfd0e0;
   --brand-border: rgba(212, 179, 109, 0.22);
@@ -39,7 +39,7 @@ body {
 }
 
 .dark body {
-  background: linear-gradient(180deg, #071827 0%, #0b1624 100%);
+  background: linear-gradient(180deg, #000000 0%, #090909 100%);
   color: var(--brand-text);
 }
 
